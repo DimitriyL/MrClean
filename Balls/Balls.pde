@@ -1,13 +1,13 @@
 boolean reactionStarted;
-Ball[] balls;
+ArrayList<Ball> balls;
 
 void setup(){
    //background(0, 0, 0);
    size(800, 800);
    reactionStarted = false;
-   balls = new Ball[25];
-   for(int i = 0; i < balls.length; i++){
-      balls[i] = new Ball(); 
+   balls = new ArrayList();
+   for(int i = 0; i < 25; i++){
+      balls.add(new Ball()); 
    }
    /*for(Ball x: balls){
       fill(x.c);
@@ -44,8 +44,16 @@ void draw(){
       }
       if(a.rad == 0){
          a.state = 50; //dead 
+         for(int q = 0; q < balls.size(); q++){
+           if(balls.get(q).equals(a)){
+             balls.remove(q);
+           }
+         }
       }
+      
+      if(a.rad > 0){
       ellipse(a.x, a.y, a.rad * 2, a.rad * 2);
       fill(a.c);
+      }
   }
 }
