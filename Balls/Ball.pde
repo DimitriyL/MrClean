@@ -37,7 +37,7 @@ class Ball{
    }
    
    boolean collision(Ball b){
-     if((dist(this.x, this.y, b.x, b.y) < rad * 2) && (dist(this.x, this.y, b.x, b.y) > 0) && b.state!=50){
+     if((dist(this.x, this.y, b.x, b.y) < rad * 2) && (dist(this.x, this.y, b.x, b.y) > 0) && b.rad > 0){
          state = 10; //10: recently collided; will count down
          if(b.state > 10 && b.rad > 0){ ///
            state = 41;
